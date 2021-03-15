@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    var welcomes = (QuickType.Welcome[]) ViewData["Welcome"];
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <table>
+        <tr>
+            <th>統計項目別</th>
+            <th>細項</th>
+            <th>樣本數（人）</th>
+            <th>沒有遭受不平等待遇（%）</th>
+            <th>有遭受不平等待遇（%）</th>
+            <th>有提出申訴（%）</th>
+            <th>有提出申訴（%）</th>
+        </tr>
+        @{
+            foreach (QuickType.Welcome welcome in welcomes)
+            {
+                <tr>
+                    <td>@welcome.統計項目別</td>
+                    <td>@welcome.細項</td>
+                    <td>@welcome.樣本數人</td>
+                    <td>@welcome.沒有遭受不平等待遇（%）</td>
+                    <td>@welcome.有遭受不平等待遇</td>
+                    <td>@welcome.有提出申訴</td>
+                    <td>@welcome.沒有提出申訴</td>
+                </tr>
+            }
+        }
+
+    </table>
+</div>
